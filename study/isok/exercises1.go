@@ -25,4 +25,19 @@ func main() {
 		}
 	}
 	fmt.Println(count)
+
+	// 3. 九九乘法表
+	for i := 1; i <= 9; i++ {
+		for j := 1; j <= 10-i; j++ {
+			fmt.Printf("%d*%d=%d ", i, j, i*j)
+		}
+		fmt.Println()
+	}
+	fmt.Println()
+	for i := 9; i >= 1; i-- {
+		for j := 1; j <= 10-i; j++ {
+			fmt.Printf("%d*%d=%d ", i, j, i*j)
+		}
+		fmt.Println()
+	}
 }
