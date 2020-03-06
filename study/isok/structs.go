@@ -30,6 +30,22 @@ func (p person) zouLu() {
 	fmt.Printf("%v 走路\n", p.name)
 }
 
+// 结构体嵌套、匿名结构体
+// 如果一个struct嵌套了另一个匿名结构体，那么这个结构体可以直接访问匿名结构体的字段和方法，从而实现继承的特性
+type a struct {
+	name string
+	age  int
+}
+
+type b struct {
+	city string
+	a    // 匿名结构体
+}
+
+func (a a) tests() {
+	fmt.Printf("is a func: %v\n", a.name)
+}
+
 func main() {
 	var myint myInt = 100
 	var aliasint aliasInt = 200
@@ -56,4 +72,16 @@ func main() {
 	fmt.Printf("构造函数 %v\n", p2)
 
 	p2.zouLu()
+
+	// 结构体嵌套、匿名结构体
+	var b1 = b{
+		city: "gz",
+		a: a{
+			name: "wlw",
+			age:  11,
+		},
+	}
+	fmt.Println(b1.a.name)
+	fmt.Println(b1.name) // 因为a是在b中是匿名结构体，所以支持使用该方式直接访问，但是如果b中多个匿名结构体有相同字段，应该使用上面的方式
+	b1.tests()           // 如果一个struct嵌套了另一个匿名结构体，那么这个结构体可以直接访问匿名结构体的字段和方法，从而实现继承的特性
 }
