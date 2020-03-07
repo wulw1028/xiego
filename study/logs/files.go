@@ -1,4 +1,4 @@
-package main
+package logs
 
 import (
 	"bufio"
@@ -90,7 +90,7 @@ func writeFromFileByIoutil() {
 	}
 }
 
-func main() {
+func Files() {
 	//readFromFile()
 	//readFromFileByBufio()
 	//readFromFileByIoutil()
