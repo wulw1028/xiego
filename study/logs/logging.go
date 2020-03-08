@@ -12,6 +12,11 @@ import (
 
 type LogLevel uint16
 
+type Logger interface {
+	Debug(msg string, errList ...interface{})
+	Error(msg string, errList ...interface{})
+}
+
 const (
 	UNKNOWN LogLevel = iota
 	DEBUG
